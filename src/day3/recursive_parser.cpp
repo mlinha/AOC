@@ -1,5 +1,4 @@
 #include "recursive_parser.h"
-#include <iostream>
 
 char RecursiveParser::get_next()
 {
