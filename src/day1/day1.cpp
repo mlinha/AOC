@@ -8,7 +8,7 @@
 
 using namespace day1;
 
-std::string read_input() 
+std::string read_input_day1() 
 {
     std::string input_data = "";
     std::string line = "";
@@ -30,7 +30,7 @@ std::string read_input()
 
 void day1::get_solution()
 {
-    std::string input = read_input();
+    std::string input = read_input_day1();
 
     std::string current;
     std::stringstream ss(input);

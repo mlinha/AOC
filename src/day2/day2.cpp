@@ -8,7 +8,7 @@
 
 using namespace day2;
 
-std::vector<std::vector<int>> read_input() 
+std::vector<std::vector<int>> read_input_day2() 
 {
     std::vector<std::vector<int>> input_data;
     std::string line = "";
@@ -100,7 +100,7 @@ std::unique_ptr<bool[]> is_record_safe(std::vector<int> &record)
 
 void day2::get_solution()
 {
-    std::vector<std::vector<int>> input = read_input();
+    std::vector<std::vector<int>> input = read_input_day2();
 
     int safe = 0;
     int safe_one_error = 0;
