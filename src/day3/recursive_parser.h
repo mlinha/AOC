@@ -29,6 +29,7 @@ class RecursiveParser
         void process_quote();
         void process_t();
         void process_invalid();
+        void reset_process(char next);
     public:
         void start();
         int get_result();

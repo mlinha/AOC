@@ -21,19 +21,7 @@ void RecursiveParser::process_m()
     {
         process_u();
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
-    
+    reset_process(next);
 }
 
 void RecursiveParser::process_u()
@@ -48,19 +36,7 @@ void RecursiveParser::process_u()
     {
         process_l();
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
-    
+    reset_process(next);
 }
 
 void RecursiveParser::process_l()
@@ -75,19 +51,7 @@ void RecursiveParser::process_l()
     {
         process_open_bracket();
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
-    
+    reset_process(next);
 }
 
 void RecursiveParser::process_open_bracket()
@@ -103,19 +67,7 @@ void RecursiveParser::process_open_bracket()
         std::string s{next};
         process_first_number(s);
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
-    
+    reset_process(next);
 }
 
 void RecursiveParser::process_first_number(std::string num)
@@ -143,18 +95,7 @@ void RecursiveParser::process_first_number(std::string num)
         first = std::stoi(num);
         process_comma();
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
 }
 
 void RecursiveParser::process_comma()
@@ -170,18 +111,7 @@ void RecursiveParser::process_comma()
         std::string s{next};
         process_second_number(s);
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
 }
 
 void RecursiveParser::process_second_number(std::string num)
@@ -209,18 +139,7 @@ void RecursiveParser::process_second_number(std::string num)
         second = std::stoi(num);
         process_close_bracket();
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
 }
 
 void RecursiveParser::process_close_bracket()
@@ -236,18 +155,7 @@ void RecursiveParser::process_close_bracket()
     }
     char next = get_next();
     index++;
-    if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
 }
 
 void RecursiveParser::process_invalid()
@@ -261,18 +169,7 @@ void RecursiveParser::process_invalid()
     }
     char next = get_next();
     index++;
-    if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
 }
 
 void RecursiveParser::start()
@@ -297,16 +194,6 @@ void RecursiveParser::start()
     }
 }
 
-int RecursiveParser::get_result()
-{
-    return result;
-}
-
-int RecursiveParser::get_result_better()
-{
-    return result_better;
-}
-
 void RecursiveParser::process_d()
 {
     first = 0;
@@ -322,18 +209,7 @@ void RecursiveParser::process_d()
     {
         process_o();
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
     
 }
 
@@ -354,18 +230,7 @@ void RecursiveParser::process_o()
     {
         process_open_bracket_modifier();
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
 }
 
 void RecursiveParser::process_open_bracket_modifier()
@@ -380,18 +245,7 @@ void RecursiveParser::process_open_bracket_modifier()
     {
         process_close_bracket_modifier();
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
 }
 
 void RecursiveParser::process_close_bracket_modifier()
@@ -410,18 +264,7 @@ void RecursiveParser::process_close_bracket_modifier()
     }
     char next = get_next();
     index++;
-    if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
 }
 
 void RecursiveParser::process_n()
@@ -436,18 +279,7 @@ void RecursiveParser::process_n()
     {
         process_quote();
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
 }
 
 void RecursiveParser::process_quote()
@@ -462,18 +294,7 @@ void RecursiveParser::process_quote()
     {
         process_t();
     }
-    else if (next == 'm')
-    {
-        process_m();
-    }
-    else if (next == 'd')
-    {
-        process_d();
-    }
-    else
-    {
-        process_invalid();
-    }
+    reset_process(next);
 }
 
 void RecursiveParser::process_t()
@@ -489,7 +310,12 @@ void RecursiveParser::process_t()
     {
         process_open_bracket_modifier();
     }
-    else if (next == 'm')
+    reset_process(next);
+}
+
+void RecursiveParser::reset_process(char next)
+{
+    if (next == 'm')
     {
         process_m();
     }
@@ -501,4 +327,14 @@ void RecursiveParser::process_t()
     {
         process_invalid();
     }
+}
+
+int RecursiveParser::get_result()
+{
+    return result;
+}
+
+int RecursiveParser::get_result_better()
+{
+    return result_better;
 }
